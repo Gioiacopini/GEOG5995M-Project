@@ -10,21 +10,24 @@ import random
 
 #use capital letter for name of the class because of PascalCasing
 
-class Stores:
-    def __init__ (self, stores):#init is the initalizer of the class
-        self.x = (95,12,67,64,54,47,53,29)
-        self.y = (30,51,80,9,9,51,36,95)
+class Store:
+    def __init__ (self, stores, revenue):#init is the initalizer of the class
+        self.x = random.randint(0,100)
+        self.y = random.randint(0,100)
         self.stores = stores
-        self.revenue = 0
+        self.revenue = revenue
         
         
-class Customers:
-    def __init__ (self, customers):
-        self.x = (random.randint(0,100))
-        self.y = (random.randint(0,100))
+        
+        
+class Customer:
+    def __init__ (self, customers, stores, money):
+        self.x = random.randint(0,100)
+        self.y = random.randint(0,100)
         self.customers = customers
-        #self.stores = stores
-        self.money = 100
+        self.stores = stores
+        self.money = money
+        
     
     def move (self):
         if random.random()< 0.5:
@@ -36,27 +39,19 @@ class Customers:
              self.y = (self.y + 1) %99
         else:
              self.y = (self.y - 1) %99
-    
-    def distance_from_store(self, stores):
-        return(((self.x - stores.x)**2)+ ((self.y - stores.y)**2)**0.5)
 
-    def shop (self, stores):
-        for customers in self.customers:
-            for stores in self.stores:
-                dist = self.distance_from_store(stores)
-                if dist <= 0.5:
-                    self.money = (self.money - 10)
-                    self.revenue = (self.money + 10)
-            
-            
-            
+#calculate the distance between the customers and the stores in steps   
+    def distance_from_store(self, store):
+        store_distance = abs(self.x - store.x) + abs(self.y - store.y)
+        return store_distance
+    
+    def check_closest_store (self, store):
+        for customer in self.customers:
+            for store in self.stores:
+                closeness = self.distance_from_store(store)
+                if closeness<=5:
+                    print ("closest store =" + self.store
+                
+                    
+
         
-             
-
-    
-#for customer0 in customers:
-    #for store0 in stores:
-        #distance = distance_from_store(customer0, store0)
-        #distances.append([distance])
-        #print(distances)
-    
