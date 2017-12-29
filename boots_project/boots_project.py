@@ -19,14 +19,14 @@ distances =[]
 
 num_of_stores = 8
 num_of_customers = 50
-num_of_iterations= 100
+num_of_iterations= 500
 revenue = 0
 money = 100
 
 #create stores
 for i in range(num_of_stores):
-    stores.append(bootsframework.Store(stores, revenue))
-
+    stores.append(bootsframework.Store((i+1), revenue))
+#assign stone sumbers (1-8) to stores)
 
 #generate customers 
 for i in range (num_of_customers):
@@ -38,8 +38,11 @@ for j in range(num_of_iterations):
     random.shuffle(customers)
     for i in range(num_of_customers):
         customers[i].move()
-        customers[i].check_closest_store(stores)
+        #customers[i].check_closest_store()
+        customers[i].shop()
 
+#make function that will update the revenue of the stores in the store list using the revenues from the customers store list
+#write a file that will show the revenue of each store. 
         
 #plot the graph
 matplotlib.pyplot.ylim(0, 99)
