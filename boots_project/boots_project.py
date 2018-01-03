@@ -24,7 +24,6 @@ final_revenue_list=[]
 num_of_stores = 8
 num_of_customers = 50
 num_of_iterations= 100
-revenue = 0
 money = 100
 
 #read data: this file contains the revenues of the stores. 
@@ -62,13 +61,15 @@ for j in range(num_of_iterations):
 #this for loop updates the revenue of the stores in the store list using the revenues from the customers store list        
 for i in range(num_of_stores):
     for j in range(num_of_customers):
-        stores[i].revenue = (stores[i].revenue + customers[i].stores[i].revenue)
+        stores[i].revenue = (stores[i].revenue + customers[j].stores[i].revenue)
 
 #append the new revenues to the new list
-for store in stores:
+for i in range(num_of_stores):
     final_revenue_list.append(stores[i].revenue)
 
-#print(final_revenue_list)
+#check the updated revenue list before writing it to the file
+print (revenue_list)
+print(final_revenue_list)
                
 #write a file that will show the final revenue of each store. 
 finalrevenue= open("finalrevenue.csv", "a")
