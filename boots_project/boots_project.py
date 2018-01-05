@@ -68,16 +68,15 @@ for i in range(num_of_stores):
     final_revenue_list.append(stores[i].revenue)
 
 #check the updated revenue list before writing it to the file
-print (revenue_list)
+print (revenue_list) 
 print(final_revenue_list)
                
 #write a file that will show the final revenue of each store. 
 finalrevenue= open("finalrevenue.csv", "a")
-writer = csv.writer(finalrevenue) 
+writer = csv.writer(finalrevenue, delimiter=",", quotechar=" ", quoting=csv.QUOTE_MINIMAL) 
 
 for i in final_revenue_list:
-    i = str(i)
-    writer.writerow(i)
+    writer.writerow([i])
     
 finalrevenue.close
        
