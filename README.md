@@ -1,4 +1,4 @@
-#Agent Based Model Description
+# Agent Based Model Description
 
 The aim of my PhD project is to develop cutting-edge marketing analysis applied to sales data and store location data. My plan is to develop a series of tools and models using "network analysis". Such methods will allow me to investigate the relationship between many "nodes" which could be particular retail outlets, products or individual consumers.
 
